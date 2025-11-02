@@ -50,11 +50,9 @@ public class ElGamalEncryption {
      */
     public BigInteger decrypt() {
         BigInteger s = this.c1.modPow(r, p);
-        System.out.println("s = " + s);
 
         // Berechne das Inverse von s mod p
         BigInteger sInv = s.modInverse(p);
-        // System.out.println("sInv = " + sInv);
 
         // Entschlüsselte Nachricht: m = c2 * sInv mod p
         BigInteger message = this.c2.multiply(sInv).mod(p);
